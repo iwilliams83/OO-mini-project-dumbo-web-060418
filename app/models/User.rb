@@ -28,4 +28,15 @@ class User
     RecipeCard.new(self, recipe, date, rating)
   end
 
+  def declare_allergen(ingredient)
+    Allergen.new(self, ingredient)
+  end
+
+  def allergens
+    Allergen.all.select do |allergen|
+      allergen.user == self
+    end
+
+  end
+
 end
